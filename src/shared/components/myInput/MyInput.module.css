@@ -1,0 +1,15 @@
+.my_input {
+  width: 100%;
+  padding: 15px;
+  max-width: 750px;
+  border-radius: 5px;
+  outline: none;
+}
+
+.input_wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  flex-direction: column;
+  width: 100%;
+}
