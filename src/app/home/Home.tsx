@@ -1,10 +1,14 @@
+import { useTranslation } from "react-i18next";
 import { HomeOurEntity } from "../../entities/homeOurEntity";
 import { PortfolioCard } from "../../features/portfolioCard";
 import CustomButton from "../../shared/components/myButton/CustomButton";
 import MyInput from "../../shared/components/myInput/MyInput";
+import ProgressBar from "../../shared/components/progressBar/ProgressBar";
+import { clientsLogo } from "../../shared/constants";
 import styles from "./Home.module.css";
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
     <div className={styles.home_wrap}>
       <div className={styles.home_background}>
@@ -14,12 +18,8 @@ const Home = () => {
         <h1>
           Create<b>X</b>
         </h1>
-        <h1>Constraction</h1>
-        <div className={styles.home_text_content}>
-          Cras ultrices leo vitae non viverra. Fringilla nisi quisque consequat,
-          dignissim vitae proin ipsum sed. Pellentesque nec turpis purus eget
-          pellentesque integer ipsum elementum felis.
-        </div>
+        <h1>{t("constraction")}</h1>
+        <div className={styles.home_text_content}>{t("home_text_content")}</div>
         <div className={styles.home_action_wrap}>
           <CustomButton classes={styles.home_action_transparent_btn}>
             LEARN MORE ABOUT US
@@ -29,7 +29,7 @@ const Home = () => {
       </div>
       <div className={styles.home_video}>
         <h3 className={styles.home_video_title}>
-          We are Createx Construction Bureau{" "}
+          We are Createx Construction Bureau
         </h3>
         <p className={styles.home_video_text}>
           We are rightfully considered to be the best construction company in
@@ -154,6 +154,33 @@ const Home = () => {
           <h3>Explore all our works</h3>
           <CustomButton>VIEW PORTFOLIO</CustomButton>
         </div>
+      </div>
+      <div className={styles.home_testimonials}>
+        <div className={styles.home_testimonials_clints_wrap}>
+          <h3>Supported by 12+ partners</h3>
+          <div className={styles.home_testimonials_clints}>
+            {clientsLogo.map((client) => (
+              <img key={client.id} src={client.path} alt={client.path} />
+            ))}
+          </div>
+        </div>
+        <div className={styles.home_testimonials_contents}>
+          <div className={styles.home_testimonials_contents_info}>
+            <h2>What our clients are saying</h2>
+            <img
+              className={styles.profile_img}
+              src="/img/profile-image.png"
+              alt="profile_img"
+            />
+            <p>
+              Ipsum aute sunt aliquip aute et occaecat. Anim minim do cillum
+              eiusmod enim. Consectetur magna cillum consequat minim laboris
+              cillum laboris voluptate minim proident exercitation ullamco.
+            </p>
+          </div>
+          <img src="/img/partner_post.jpg" alt="partner_img" />
+        </div>
+        <ProgressBar value="98%" />
       </div>
     </div>
   );

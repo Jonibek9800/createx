@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./app/App.tsx";
 import "./index.css";
+import "./i18n.ts";
 import Layout from "./app/layout.tsx";
 import { BrowserRouter } from "react-router-dom";
 
